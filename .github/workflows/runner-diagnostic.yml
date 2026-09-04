@@ -1,0 +1,16 @@
+name: Runner diagnostic
+
+on:
+  push:
+    branches: [audit-ci-diagnostic-2026-09-04]
+
+permissions: {}
+
+jobs:
+  runner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Runner heartbeat
+        shell: bash
+        run: printf 'runner-ok\n'
