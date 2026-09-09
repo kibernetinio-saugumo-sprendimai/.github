@@ -1,3 +1,6 @@
+<!-- Allow only the HTML elements used by this README's logo and branding layout. -->
+<!-- markdownlint-configure-file { "MD033": { "allowed_elements": ["p", "img", "strong", "br", "hr"] } } -->
+
 <p align="center">
   <img src="assets/logo/safestack.png" width="160" alt="SafeStack Logo" />
 </p>
