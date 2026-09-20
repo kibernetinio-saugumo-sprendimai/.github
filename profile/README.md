@@ -76,6 +76,10 @@ python3 key_registry.py verify --registry public-project-keys.json
 
 Private root and project keys remain offline and are never stored in this organization profile or public repositories. Read the [registry certificate](https://github.com/kibernetinio-saugumo-sprendimai/safestack-project-public-keys/blob/master/SAFESTACK_PROJECT_PUBLIC_KEYS_CERTIFICATE.md) for the current signed inventory.
 
+## Partner resource
+
+<a href="https://threatmap.xcitium.com/" target="_blank" rel="noreferrer"><strong>Xcitium ThreatMap</strong></a> — real-time malware threat intelligence and a useful external signal for the wider security community.
+
 ## Principles
 
 **Evidence over claims.** Controls should produce something another person can inspect.
