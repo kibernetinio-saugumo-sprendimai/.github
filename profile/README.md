@@ -1,86 +1,91 @@
-# SafeStack
-
-SafeStack CANON is the **single source of truth** for the SafeStack ecosystem.
-
-It defines **what is trusted**, **what is valid**, and **how integrity is verified**.
-This repository is **read-only by design**.
-
----
-
-## What this is
-
-- A canonical reference for SafeStack system integrity
-- Cryptographic hashes and signatures
-- Verification rules and trust boundaries
-- Architecture and system invariants
-
-If something matches the CANON → it is trusted.  
-If it does not → it is not SafeStack.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/kibernetinio-saugumo-sprendimai/.github/main/assets/logo/safestack.png" width="112" alt="SafeStack logo">
+  <h1>SafeStack</h1>
+  <p><strong>Verifiable security systems for teams that cannot afford silent failure.</strong></p>
+  <p>
+    <a href="https://github.com/kibernetinio-saugumo-sprendimai/safestack-project-public-keys">Public key registry</a> ·
+    <a href="https://github.com/kibernetinio-saugumo-sprendimai/safestack-audit_system">Audit system</a> ·
+    <a href="https://github.com/kibernetinio-saugumo-sprendimai/.github/blob/main/SECURITY.md">Security policy</a>
+  </p>
+</div>
 
 ---
 
-## What this is NOT
+SafeStack builds security infrastructure around a simple standard: critical actions should be bounded, attributable and independently verifiable. We work across audit automation, project identity, OSINT and zero-trust architecture.
 
-- Not an application
-- Not a tool
-- Not open for modification
-- Not community-driven
+## What we build
 
-Tools may change.  
-Implementations may evolve.  
-The CANON stays stable.
+| Capability | Outcome |
+| --- | --- |
+| **Security audits** | Source-aware analysis with bounded inputs, explicit failure states and reviewable evidence. |
+| **Project identity** | One Ed25519 signing key per project, a root-signed public registry and scoped revocation. |
+| **Trust architecture** | Clear boundaries between operators, systems, artifacts and the authority that verifies them. |
+| **Security intelligence** | Structured OSINT and control signals that help teams make decisions with evidence. |
 
----
+## Operating model
 
-## How it works
+```mermaid
+flowchart LR
+    A[Offline root key] -->|signs| B[Public project registry]
+    B --> C[Project 001\nAudit System]
+    B --> D[Project 019\nPortfolio]
+    C --> E[Signed artifacts]
+    D --> F[Verified public identity]
+    E --> G{Independent verification}
+    F --> G
+    G -->|valid| H[Trust]
+    G -->|invalid or revoked| I[Quarantine]
+```
 
-1. CANON defines **trusted state**
-2. Systems and nodes verify themselves against it
-3. Any change **invalidates trust** until re-established and re-signed
+The root key is kept offline. Project keys are isolated from one another, and a compromised project key can be revoked without invalidating the rest of the portfolio.
 
-Trust comes from **verification**, not from promises.
+## Control signals
 
----
+The chart below is an illustrative control-coverage view. It is a design signal, not a claim about production telemetry.
 
-## Contents
+```mermaid
+xychart-beta
+    title "Illustrative control coverage over time"
+    x-axis [01, 03, 05, 07, 09, 12]
+    y-axis "coverage" 0 --> 100
+    line [18, 28, 44, 57, 76, 91]
+```
 
-- `CANON_HASHES.md`  
-  Canonical hashes of trusted artifacts
+| Signal | Current state |
+| --- | ---: |
+| Projects in signed public registry | **18** |
+| Project signing algorithm | **Ed25519** |
+| Public repositories containing private keys | **0** |
+| Private key file mode on managed workstation | **0600** |
 
-- `CANON_HASHES.md.asc`  
-  Cryptographic signature of the hashes
+## Selected projects
 
-- `canon_verify.md`  
-  How verification is performed
+- [SafeStack Audit System](https://github.com/kibernetinio-saugumo-sprendimai/safestack-audit_system) — bounded, fail-closed audit workflow.
+- [SafeStack Sentinel](https://github.com/kibernetinio-saugumo-sprendimai/Safestack-Sentinel) — monitoring and response experiments.
+- [SafeStack OSINT](https://github.com/kibernetinio-saugumo-sprendimai/safestack-OSINT) — security intelligence research.
+- [Zero Trust Platform](https://github.com/kibernetinio-saugumo-sprendimai/SafeStack-Zero-Trust-Platform) — trust-boundary architecture.
+- [Project public-key registry](https://github.com/kibernetinio-saugumo-sprendimai/safestack-project-public-keys) — signed project identities and fingerprints.
 
-- `safe_stack_architecture_map_v2.md`  
-  Canonical architecture and trust boundaries
+## Verification first
 
-- `safe_stack_mvs_minimal_viable_system.md`  
-  Minimal viable definition of a SafeStack node
+The public registry is not trusted merely because it is published. Verify its root signature before trusting a project key:
 
-- `Federuota_autonominiu_mazgu_sistema.md`  
-  Federated autonomous node model
+```bash
+python3 key_registry.py verify --registry public-project-keys.json
+```
 
----
+Private root and project keys remain offline and are never stored in this organization profile or public repositories. Read the [registry certificate](https://github.com/kibernetinio-saugumo-sprendimai/safestack-project-public-keys/blob/master/SAFESTACK_PROJECT_PUBLIC_KEYS_CERTIFICATE.md) for the current signed inventory.
 
-## Rules (important)
+## Principles
 
-- This repository has **no license on purpose**
-- Reading and verification are allowed
-- Modification means **it is no longer CANON**
-- Modified copies must never be presented as SafeStack CANON
+**Evidence over claims.** Controls should produce something another person can inspect.
 
----
+**Isolation by default.** A project, credential or failure should have the smallest practical blast radius.
 
-## Status
+**Fail closed.** If a system cannot verify a state, it must not report that state as trusted.
 
-Stable.  
-Immutable.  
-Versioned via signed tags.
+**Human review at the boundary.** Automation can prepare evidence and drafts; operators decide what becomes authoritative.
 
-If it works only by following instructions,  
-it is not understood yet.
-
-Breaking systems is part of learning.  
-Breaking the CANON means leaving the system.
+<div align="center">
+  <sub>SafeStack · independent security research and systems engineering</sub>
+</div>
