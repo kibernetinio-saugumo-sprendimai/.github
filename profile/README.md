@@ -78,6 +78,8 @@ Private root and project keys remain offline and are never stored in this organi
 
 ## Partner resource
 
+See the [SafeStack partner directory](https://github.com/kibernetinio-saugumo-sprendimai/safestack-partners) for the full list and purpose of our security ecosystem resources.
+
 <a href="https://threatmap.xcitium.com/" target="_blank" rel="noreferrer"><strong>Xcitium ThreatMap</strong></a> — real-time malware threat intelligence and a useful external signal for the wider security community.
 
 ## Principles
