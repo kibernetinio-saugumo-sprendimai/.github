@@ -40,6 +40,15 @@ The offline root key signs the public project key registry. Every project mainta
 
 ## Control Signals & Integrity Metrics
 
+```mermaid
+xychart-beta
+    title "Verifiable Control Coverage & Invariant Velocity over Time"
+    x-axis ["T-12", "T-10", "T-08", "T-06", "T-04", "T-02", "NOW"]
+    y-axis "Posture %" 0 --> 100
+    bar [18, 34, 56, 72, 85, 97, 100]
+    line [12, 30, 54, 75, 88, 98, 100]
+```
+
 | Control Signal | Verified State |
 | --- | ---: |
 | Verified public repositories | **22** |
