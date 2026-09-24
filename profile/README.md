@@ -3,95 +3,103 @@
   <h1>SafeStack</h1>
   <p><strong>Verifiable security systems for teams that cannot afford silent failure.</strong></p>
   <p>
-    <a href="https://github.com/kibernetinio-saugumo-sprendimai/safestack-project-public-keys">Public key registry</a> ·
-    <a href="https://github.com/kibernetinio-saugumo-sprendimai/safestack-audit_system">Audit system</a> ·
-    <a href="https://github.com/kibernetinio-saugumo-sprendimai/.github/blob/main/SECURITY.md">Security policy</a>
+    <a href="https://safestack.engineering">Official Showcase</a> ·
+    <a href="https://github.com/kibernetinio-saugumo-sprendimai/safestack-repo-map">Repository Map</a> ·
+    <a href="https://github.com/kibernetinio-saugumo-sprendimai/safestack-project-public-keys">Public Key Registry</a> ·
+    <a href="https://github.com/kibernetinio-saugumo-sprendimai/safestack-validation-registry">Validation Registry</a> ·
+    <a href="https://github.com/kibernetinio-saugumo-sprendimai/.github/blob/main/SECURITY.md">Security Policy</a>
   </p>
 </div>
 
 ---
 
-SafeStack builds security infrastructure around a simple standard: critical actions should be bounded, attributable and independently verifiable. We work across audit automation, project identity, OSINT and zero-trust architecture.
+SafeStack builds security infrastructure around a strict standard: critical actions must be bounded, attributable, isolated by default, and independently verifiable. We engineer deterministic security controls across runtime kernels, audit automation, zero-trust edge infrastructure, and cryptographic canons.
 
-## What we build
-
-| Capability | Outcome |
-| --- | --- |
-| **Security audits** | Source-aware analysis with bounded inputs, explicit failure states and reviewable evidence. |
-| **Project identity** | One Ed25519 signing key per project, a root-signed public registry and scoped revocation. |
-| **Trust architecture** | Clear boundaries between operators, systems, artifacts and the authority that verifies them. |
-| **Security intelligence** | Structured OSINT and control signals that help teams make decisions with evidence. |
-
-## Operating model
+## Operating Model & Key Isolation
 
 ```mermaid
 flowchart LR
-    A[Offline root key] -->|signs| B[Public project registry]
-    B --> C[Project 001\nAudit System]
-    B --> D[Project 019\nPortfolio]
-    C --> E[Signed artifacts]
-    D --> F[Verified public identity]
-    E --> G{Independent verification}
-    F --> G
-    G -->|valid| H[Trust]
-    G -->|invalid or revoked| I[Quarantine]
+    A[Offline Root Key] -->|signs| B[Public Project Registry]
+    B --> C[Project 001
+Audit System]
+    B --> D[Project 005
+NodeOS]
+    B --> E[Project 019
+Portfolio]
+    C --> F[Signed Artifacts]
+    D --> G[Verified Telemetry]
+    E --> H[Public Showcase]
+    F --> I{Independent Verification}
+    G --> I
+    H --> I
+    I -->|valid| J[Trust]
+    I -->|invalid or revoked| K[Quarantine]
 ```
 
-The root key is kept offline. Project keys are isolated from one another, and a compromised project key can be revoked without invalidating the rest of the portfolio.
+The offline root key signs the public project key registry. Every project maintains its own isolated Ed25519 signing key. Revocation of any single project key immediately isolates the blast radius without invalidating the broader ecosystem.
 
-## Control signals
+## Control Signals & Integrity Metrics
 
-The chart below is an illustrative control-coverage view. It is a design signal, not a claim about production telemetry.
-
-```mermaid
-xychart-beta
-    title "Illustrative control coverage over time"
-    x-axis [01, 03, 05, 07, 09, 12]
-    y-axis "coverage" 0 --> 100
-    line [18, 28, 44, 57, 76, 91]
-```
-
-| Signal | Current state |
+| Control Signal | Verified State |
 | --- | ---: |
-| Projects in signed public registry | **18** |
+| Verified public repositories | **22** |
 | Project signing algorithm | **Ed25519** |
 | Public repositories containing private keys | **0** |
-| Private key file mode on managed workstation | **0600** |
+| Private repositories exposed | **0** |
+| Private key file mode on managed workstations | **0600** |
+| Default trust posture | **Fail-Closed** |
 
-## Selected projects
+## Architectural Layers & Public Repositories
 
-- [SafeStack Audit System](https://github.com/kibernetinio-saugumo-sprendimai/safestack-audit_system) — bounded, fail-closed audit workflow.
-- [SafeStack Sentinel](https://github.com/kibernetinio-saugumo-sprendimai/Safestack-Sentinel) — monitoring and response experiments.
-- [SafeStack OSINT](https://github.com/kibernetinio-saugumo-sprendimai/safestack-OSINT) — security intelligence research.
-- [Zero Trust Platform](https://github.com/kibernetinio-saugumo-sprendimai/SafeStack-Zero-Trust-Platform) — trust-boundary architecture.
-- [Project public-key registry](https://github.com/kibernetinio-saugumo-sprendimai/safestack-project-public-keys) — signed project identities and fingerprints.
+### 1. Trust & Registry Core
+- [safestack-canon](https://github.com/kibernetinio-saugumo-sprendimai/safestack-canon) — Canonical integrity anchors and signed foundational trust principles.
+- [safestack-technical-canon](https://github.com/kibernetinio-saugumo-sprendimai/safestack-technical-canon) — Technical canon specifications, manifest schemas, and cryptographic governance.
+- [safestack-project-public-keys](https://github.com/kibernetinio-saugumo-sprendimai/safestack-project-public-keys) — Signed public Ed25519 keys for projects and release signers.
+- [safestack-validation-registry](https://github.com/kibernetinio-saugumo-sprendimai/safestack-validation-registry) — Official authoritative ledger of validated projects, audit records, and declarations.
+- [Verification-artifacts](https://github.com/kibernetinio-saugumo-sprendimai/Verification-artifacts) — Detached cryptographic checksum files, verification manifests, and audit scripts.
+- [safestack-control-architecture](https://github.com/kibernetinio-saugumo-sprendimai/safestack-control-architecture) — Layered routing, cryptographic trust boundaries, and control planes.
 
-## Verification first
+### 2. Runtime & Infrastructure
+- [node-os](https://github.com/kibernetinio-saugumo-sprendimai/node-os) — Autonomous zero-trust operating layer for edge nodes with NVMe SMART health monitoring.
+- [Safestack-Zero-Trust](https://github.com/kibernetinio-saugumo-sprendimai/Safestack-Zero-Trust) — Local-first zero-trust policy decision engine, default-deny enforcement, and posture gates.
+- [SafeStack-Zero-Trust-Platform](https://github.com/kibernetinio-saugumo-sprendimai/SafeStack-Zero-Trust-Platform) — Zero-trust security platform and policy orchestration components.
+- [Safestack-Sentinel](https://github.com/kibernetinio-saugumo-sprendimai/Safestack-Sentinel) — Continuous telemetry monitoring daemon and host anomaly detection.
+- [Safestack-suite](https://github.com/kibernetinio-saugumo-sprendimai/Safestack-suite) — Integrated runtime utilities and cryptographic CLI tools.
 
-The public registry is not trusted merely because it is published. Verify its root signature before trusting a project key:
+### 3. Intelligence & Automation
+- [safestack-audit_system](https://github.com/kibernetinio-saugumo-sprendimai/safestack-audit_system) — Deterministic AI-assisted security audit framework with hardened runtime governance.
+- [safestack-OSINT](https://github.com/kibernetinio-saugumo-sprendimai/safestack-OSINT) — Modular, policy-driven OSINT framework with cryptographic integrity verification.
+- [AI-Tyreju-Komanda](https://github.com/kibernetinio-saugumo-sprendimai/AI-Tyreju-Komanda) — AI investigative agent tooling and collaborative analysis workspace.
+
+### 4. Web & Publishing
+- [freedom.manifesto.github.io](https://github.com/kibernetinio-saugumo-sprendimai/freedom.manifesto.github.io) — Public SafeStack freedom manifesto portal and community documentation.
+- [safestack-porfolio.github.io](https://github.com/kibernetinio-saugumo-sprendimai/safestack-porfolio.github.io) — Official public portfolio, systems showcase, and live telemetry ([safestack.engineering](https://safestack.engineering)).
+- [safestack-book](https://github.com/kibernetinio-saugumo-sprendimai/safestack-book) — SafeStack library for architectural books, technical papers, and NIST FIPS standards.
+- [.github](https://github.com/kibernetinio-saugumo-sprendimai/.github) — Global organisation profiles, community health standards, and workflow defaults.
+
+### 5. Ecosystem & Meta
+- [safestack-repo-map](https://github.com/kibernetinio-saugumo-sprendimai/safestack-repo-map) — Interactive visual tree and architectural map of the organization.
+- [safestack-partners](https://github.com/kibernetinio-saugumo-sprendimai/safestack-partners) — Security ecosystem integration resources and partner guidelines.
+- [safestack-media-library](https://github.com/kibernetinio-saugumo-sprendimai/safestack-media-library) — Curated visual asset library for schematics, diagrams, and vector assets.
+- [safestack-music](https://github.com/kibernetinio-saugumo-sprendimai/safestack-music) — Public SafeStack soundtrack and audio link catalogue.
+
+## Verification First
+
+The public registry is not trusted merely because it is published. Verify the root signature and project keys locally:
 
 ```bash
 python3 key_registry.py verify --registry public-project-keys.json
 ```
 
-Private root and project keys remain offline and are never stored in this organization profile or public repositories. Read the [registry certificate](https://github.com/kibernetinio-saugumo-sprendimai/safestack-project-public-keys/blob/master/SAFESTACK_PROJECT_PUBLIC_KEYS_CERTIFICATE.md) for the current signed inventory.
+All private root and project keys remain offline and are never stored in public repositories. Consult the [registry certificate](https://github.com/kibernetinio-saugumo-sprendimai/safestack-project-public-keys/blob/master/SAFESTACK_PROJECT_PUBLIC_KEYS_CERTIFICATE.md) for current cryptographic fingerprints.
 
-## Partner resource
+## Foundational Principles
 
-See the [SafeStack partner directory](https://github.com/kibernetinio-saugumo-sprendimai/safestack-partners) for the full list and purpose of our security ecosystem resources.
-
-<a href="https://threatmap.xcitium.com/" target="_blank" rel="noreferrer"><strong>Xcitium ThreatMap</strong></a> — real-time malware threat intelligence and a useful external signal for the wider security community.
-
-## Principles
-
-**Evidence over claims.** Controls should produce something another person can inspect.
-
-**Isolation by default.** A project, credential or failure should have the smallest practical blast radius.
-
-**Fail closed.** If a system cannot verify a state, it must not report that state as trusted.
-
-**Human review at the boundary.** Automation can prepare evidence and drafts; operators decide what becomes authoritative.
+- **Evidence over claims:** Security controls must produce deterministic, inspectable evidence.
+- **Isolation by default:** Failures, credentials, and modules are strictly quarantined to their bounded blast radius.
+- **Fail closed:** If a system cannot verify a state or signature, it must refuse to operate.
+- **Human review at the boundary:** Automation collects telemetry and drafts audits; human operators decide authoritative state.
 
 <div align="center">
-  <sub>SafeStack · independent security research and systems engineering</sub>
+  <sub>SafeStack · Independent security research and systems engineering</sub>
 </div>
