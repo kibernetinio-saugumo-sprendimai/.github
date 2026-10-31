@@ -61,6 +61,7 @@ xychart-beta
 ## Architectural Layers & Public Repositories
 
 ### 1. Trust & Registry Core
+
 - [safestack-canon](https://github.com/kibernetinio-saugumo-sprendimai/safestack-canon) — Canonical integrity anchors and signed foundational trust principles.
 - [safestack-technical-canon](https://github.com/kibernetinio-saugumo-sprendimai/safestack-technical-canon) — Technical canon specifications, manifest schemas, and cryptographic governance.
 - [safestack-project-public-keys](https://github.com/kibernetinio-saugumo-sprendimai/safestack-project-public-keys) — Signed public Ed25519 keys for projects and release signers.
@@ -69,6 +70,7 @@ xychart-beta
 - [safestack-control-architecture](https://github.com/kibernetinio-saugumo-sprendimai/safestack-control-architecture) — Layered routing, cryptographic trust boundaries, and control planes.
 
 ### 2. Runtime & Infrastructure
+
 - [node-os](https://github.com/kibernetinio-saugumo-sprendimai/node-os) — Autonomous zero-trust operating layer for edge nodes with NVMe SMART health monitoring.
 - [Safestack-Zero-Trust](https://github.com/kibernetinio-saugumo-sprendimai/Safestack-Zero-Trust) — Local-first zero-trust policy decision engine, default-deny enforcement, and posture gates.
 - [SafeStack-Zero-Trust-Platform](https://github.com/kibernetinio-saugumo-sprendimai/SafeStack-Zero-Trust-Platform) — Zero-trust security platform and policy orchestration components.
@@ -76,17 +78,20 @@ xychart-beta
 - [Safestack-suite](https://github.com/kibernetinio-saugumo-sprendimai/Safestack-suite) — Integrated runtime utilities and cryptographic CLI tools.
 
 ### 3. Intelligence & Automation
+
 - [safestack-audit_system](https://github.com/kibernetinio-saugumo-sprendimai/safestack-audit_system) — Deterministic AI-assisted security audit framework with hardened runtime governance.
 - [safestack-OSINT](https://github.com/kibernetinio-saugumo-sprendimai/safestack-OSINT) — Modular, policy-driven OSINT framework with cryptographic integrity verification.
 - [AI-Tyreju-Komanda](https://github.com/kibernetinio-saugumo-sprendimai/AI-Tyreju-Komanda) — AI investigative agent tooling and collaborative analysis workspace.
 
 ### 4. Web & Publishing
+
 - [freedom.manifesto.github.io](https://github.com/kibernetinio-saugumo-sprendimai/freedom.manifesto.github.io) — Public SafeStack freedom manifesto portal and community documentation.
 - [safestack-porfolio.github.io](https://github.com/kibernetinio-saugumo-sprendimai/safestack-porfolio.github.io) — Official public portfolio, systems showcase, and live telemetry ([safestack.engineering](https://safestack.engineering)).
 - [safestack-book](https://github.com/kibernetinio-saugumo-sprendimai/safestack-book) — SafeStack library for architectural books, technical papers, and NIST FIPS standards.
 - [.github](https://github.com/kibernetinio-saugumo-sprendimai/.github) — Global organisation profiles, community health standards, and workflow defaults.
 
 ### 5. Ecosystem & Meta
+
 - [safestack-repo-map](https://github.com/kibernetinio-saugumo-sprendimai/safestack-repo-map) — Interactive visual tree and architectural map of the organization.
 - [safestack-partners](https://github.com/kibernetinio-saugumo-sprendimai/safestack-partners) — Security ecosystem integration resources and partner guidelines.
 - [safestack-media-library](https://github.com/kibernetinio-saugumo-sprendimai/safestack-media-library) — Curated visual asset library for schematics, diagrams, and vector assets.
